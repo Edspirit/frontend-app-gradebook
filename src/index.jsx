@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import {
   APP_READY,
   initialize,
+  mergeConfig,
   subscribe,
 } from '@edx/frontend-platform';
 import { messages as headerMessages } from '@edx/frontend-component-header';
@@ -20,6 +21,13 @@ subscribe(APP_READY, () => {
 });
 
 initialize({
+  handlers: {
+    config: () => {
+      mergeConfig({
+        AC_INSTANCE_CONFIG_API_URL: process.env.AC_INSTANCE_CONFIG_API_URL,
+      }, 'App loadConfig override handler');
+    },
+  },
   messages: [
     appMessages,
     headerMessages,
