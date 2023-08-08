@@ -7,7 +7,7 @@ import zhcnMessages from './messages/zh_CN.json';
 
 const messages = {
   ar: arMessages,
-  fa: faIRMessages,
+  'fa-ir': faIRMessages,
   'es-419': es419Messages,
   fr: frMessages,
   'zh-cn': zhcnMessages,
