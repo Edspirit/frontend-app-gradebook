@@ -32,8 +32,8 @@
   ],
   "dependencies": {
     "@edx/brand": "https://github.com/Edspirit/brand-openedx",
-    "@edx/frontend-component-footer": "https://github.com/Edspirit/frontend-component-footer#v10.1.36",
-    "@edx/frontend-component-header": "https://github.com/Edspirit/frontend-component-header#v2.4.56",
+    "@edx/frontend-component-footer": "https://github.com/Edspirit/frontend-component-footer#v10.1.37",
+    "@edx/frontend-component-header": "https://github.com/Edspirit/frontend-component-header#v2.4.57",
     "@edx/frontend-platform": "2.6.2",
     "@edx/paragon": "19.6.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
