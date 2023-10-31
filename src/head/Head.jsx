@@ -10,7 +10,6 @@ const Head = ({ intl }) => (
     <title>
       {intl.formatMessage(messages['gradebook.page.title'], { siteName: getConfig().SITE_NAME })}
     </title>
-    <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
   </Helmet>
 );
 
