@@ -12,6 +12,9 @@ import ruMessages from './messages/ru.json';
 import ukMessages from './messages/uk.json';
 import zhcnMessages from './messages/zh_CN.json';
 // no need to import en messages-- they are in the defaultMessage field
+import ititMessages from './messages/it_IT.json';
+import ptptMessages from './messages/pt_PT.json';
+import dedeMessages from './messages/de_DE.json';
 
 const messages = {
   ar: arMessages,
@@ -27,6 +30,9 @@ const messages = {
   'fr-ca': frCAMessages,
   ru: ruMessages,
   uk: ukMessages,
+  'it-it': ititMessages,
+  'pt-pt': ptptMessages,
+  'de-de': dedeMessages,
 };
 
 export const getLocalizedSlash = () => {
