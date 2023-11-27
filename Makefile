@@ -2,7 +2,7 @@ npm-install-%: ## install specified % npm package
 	npm install $* --save-dev
 	git add package.json
 export TRANSIFEX_RESOURCE = frontend-app-gradebook
-transifex_langs = "ar,de,es_419,fa_IR,fr,fr_CA,hi,it,pt,ru,uk,zh_CN"
+transifex_langs = "ar,fr,es_419,zh_CN,pt,it,de,uk,ru,hi,fr_CA,it_IT,pt_PT,de_DE,fa_IR"
 
 transifex_utils = ./node_modules/.bin/transifex-utils.js
 i18n = ./src/i18n
