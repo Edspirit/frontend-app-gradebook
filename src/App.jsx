@@ -10,27 +10,38 @@ import { routePath } from 'data/constants/app';
 import store from 'data/store';
 import GradebookPage from 'containers/GradebookPage';
 import './App.scss';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import REACT_QUERY_CONSTANTS from './constants/react-query-constants';
 import Head from './head/Head';
 
-const App = () => (
-  <AppProvider store={store}>
-    <Head />
-    <Router>
-      <div>
-        <Header />
-        <main>
-          <Switch>
-            <Route
-              exact
-              path={routePath}
-              component={GradebookPage}
-            />
-          </Switch>
-        </main>
-        <Footer logo={process.env.LOGO_POWERED_BY_OPEN_EDX_URL_SVG} />
-      </div>
-    </Router>
-  </AppProvider>
-);
+const App = () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      ...REACT_QUERY_CONSTANTS,
+    },
+  });
 
+  return (
+    <AppProvider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <Head />
+        <Router>
+          <div>
+            <Header />
+            <main>
+              <Switch>
+                <Route
+                  exact
+                  path={routePath}
+                  component={GradebookPage}
+                />
+              </Switch>
+            </main>
+            <Footer logo={process.env.LOGO_POWERED_BY_OPEN_EDX_URL_SVG} />
+          </div>
+        </Router>
+      </QueryClientProvider>
+    </AppProvider>
+  );
+};
 export default App;
