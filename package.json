@@ -28,9 +28,9 @@
     "extends @edx/browserslist-config"
   ],
   "dependencies": {
-    "@edx/brand": "npm:@edx/brand-openedx@^1.2.0",
-    "@edx/frontend-component-footer": "12.2.0",
-    "@edx/frontend-component-header": "4.6.0",
+    "@edx/brand": "https://github.com/Edspirit/brand-openedx",
+    "@edx/frontend-component-footer": "https://github.com/Edspirit/frontend-component-footer#v12.4.0",
+    "@edx/frontend-component-header": "https://github.com/Edspirit/frontend-component-header#v4.5.0",
     "@edx/frontend-platform": "5.5.4",
     "@edx/paragon": "20.45.0",
     "@edx/react-unit-test-utils": "1.7.0",
