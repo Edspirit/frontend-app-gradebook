@@ -11,6 +11,7 @@ import ptMessages from './messages/pt.json';
 import ruMessages from './messages/ru.json';
 import ukMessages from './messages/uk.json';
 import zhcnMessages from './messages/zh_CN.json';
+import zhhkMessages from './messages/zh_HK.json';
 // no need to import en messages-- they are in the defaultMessage field
 import ititMessages from './messages/it_IT.json';
 import ptptMessages from './messages/pt_PT.json';
@@ -23,6 +24,7 @@ const messages = {
   'fa-ir': faIRMessages,
   fr: frMessages,
   'zh-cn': zhcnMessages,
+  'zh-hk': zhhkMessages,
   pt: ptMessages,
   it: itMessages,
   de: deMessages,
