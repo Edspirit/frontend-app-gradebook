@@ -9,13 +9,11 @@ import Header from '@edx/frontend-component-header';
 import store from 'data/store';
 import GradebookPage from 'containers/GradebookPage';
 import './App.scss';
-import Head from './head/Head';
 
 const App = () => (
   <AppProvider store={store}>
-    <Head />
     <div>
-      <Header />
+      <Header mfeTitle="gradebook.page.title" />
       <main>
         <Routes>
           <Route
