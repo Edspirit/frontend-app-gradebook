@@ -51,7 +51,7 @@ export class GradebookPage extends React.Component {
       <WithSidebar
         sidebar={<GradebookFilters updateQueryParams={this.updateQueryParams} />}
       >
-        <div className="px-3 gradebook-content">
+        <div className="px-3 gradebook-content container-fluid">
           <GradebookHeader />
           {(this.props.activeView === views.bulkManagementHistory
             ? <BulkManagementHistoryView />
