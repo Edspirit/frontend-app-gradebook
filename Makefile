@@ -48,6 +48,42 @@ pull_translations:
 	           translations/paragon/src/i18n/messages:paragon \
 	           translations/frontend-app-gradebook/src/i18n/messages:frontend-app-gradebook
 
+	# Create fa_IR.json duplicates from fa.json
+	for dir in src/i18n/messages/*; do \
+		if [ -f "$$dir/fa.json" ]; then \
+			cp "$$dir/fa.json" "$$dir/fa_IR.json"; \
+		fi \
+	done
+
+	# Update index.js files to include fa_IR
+	for index_file in src/i18n/messages/*/index.js; do \
+		if [ -f "$${index_file%/*}/fa_IR.json" ]; then \
+			sed -i '/import messagesOfFaLanguage/a import messagesOfFaIrLanguage from '\''./fa_IR.json'\'';' "$$index_file"; \
+			sed -i "/'fa': messagesOfFaLanguage,/a\ \ 'fa-ir': messagesOfFaIrLanguage," "$$index_file"; \
+		fi \
+	done
+
+	# Clone repos to temp directory and copy i18n files
+	rm -rf temp/header-repo temp/footer-repo
+	mkdir -p temp
+	git clone --depth 1 https://github.com/edSPIRIT/frontend-component-header.git temp/header-repo && cd temp/header-repo && git fetch --depth 1 origin tag v5.7.4 && git checkout v5.7.4 && cd ../../
+	git clone --depth 1 https://github.com/edSPIRIT/frontend-component-footer.git temp/footer-repo && cd temp/footer-repo && git fetch --depth 1 origin tag v14.0.12 && git checkout v14.0.12 && cd ../../
+	
+	# Copy header translations and i18n files
+	mkdir -p src/i18n/messages/frontend-component-header
+	cp temp/header-repo/src/i18n/messages/*.json src/i18n/messages/frontend-component-header/
+	cp temp/header-repo/src/i18n/index.js src/i18n/messages/frontend-component-header/
+	
+	# Copy footer translations
+	mkdir -p src/i18n/messages/frontend-component-footer
+	cp temp/footer-repo/src/i18n/messages/*.json src/i18n/messages/frontend-component-footer/
+	cp temp/footer-repo/src/i18n/index.js src/i18n/messages/frontend-component-footer/
+	
+
+	
+	# Cleanup temp directories
+	rm -rf temp/header-repo temp/footer-repo
+	
 	$(intl_imports) frontend-platform paragon frontend-component-header frontend-component-footer frontend-app-gradebook
 
 # This target is used by CI.
